@@ -22,7 +22,7 @@
 #### ２.コマンドでフォルダー移動（PowerShellを使用）
 #### cd WebBord
 #### ３.composeをする
-#### docker compose up -d
+#### sudo docker-compose up -d
 #### ４.ブラウザで起動
 #### EC2のパブリックIPをブラウザに貼り付ける
 
