@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            background: #1f922e;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .post {
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete {
+            color: red;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .delete:hover {
+            text-decoration: underline;
+        }
+
+        .empty {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💬 掲示板</h1>
+
+    <!-- 投稿フォーム -->
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <form action="/add" method="POST" style="flex:1;">
+        <input type="text" name="content" placeholder="今なにしてる？" required>
+        <button type="submit">投稿</button>
+    </form>
+    <a href="/logout" style="color:#fff; background:#f44336; padding:10px 16px; border-radius:8px; text-decoration:none;">ログアウト</a>
+</div>
+
+    <!-- 投稿一覧 -->
+    {% if posts %}
+    {% for post in posts %}
+    <div class="post">
+        <span><strong>{{ post.user.username }}:</strong> {{ post.content }}</span>
+        {% if post.user_id == session['user_id'] %}
+        <form action="/delete/{{ post.id }}" method="post" style="display:inline;">
+            <button type="submit" class="delete">削除</button>
+        </form>
+        {% endif %}
+    </div>
+{% endfor %}
+{% else %}
+    <p class="empty">まだ投稿がありません 🐣</p>
+{% endif %}
+</div>
+
+</body>
+</html>
