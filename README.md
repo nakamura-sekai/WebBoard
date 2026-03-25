@@ -17,14 +17,14 @@
 
 操作手順
 EC2の環境に入っている前提
-１.GithabからCloneをする
-git clone https://github.com/nakamura-sekai/WebBoard.git
-２.コマンドでフォルダー移動（PowerShellを使用）
-cd WebBord
-３.composeをする
-docker compose up -d
-４.ブラウザで起動
-EC2のパブリックIPをブラウザに貼り付ける
+####１.GithabからCloneをする
+####git clone https://github.com/nakamura-sekai/WebBoard.git
+####２.コマンドでフォルダー移動（PowerShellを使用）
+####cd WebBord
+####３.composeをする
+####docker compose up -d
+####S４.ブラウザで起動
+####EC2のパブリックIPをブラウザに貼り付ける
 
 工夫した点
 ・ログイン状態の管理
