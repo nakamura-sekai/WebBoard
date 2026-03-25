@@ -16,10 +16,10 @@
 - 投稿にユーザー名表示
 
 ## 操作手順
-#### EC2の環境に入っている前提
-#### １.GithabからCloneをする
+#### EC2の環境に入っている前提・PowerShellを使用
+#### １.GithabからCloneをするCloneコマンドを入力する
 #### git clone https://github.com/nakamura-sekai/WebBoard.git
-#### ２.コマンドでフォルダー移動（PowerShellを使用）
+#### ２.コマンドでフォルダー移動
 #### cd WebBord
 #### ３.composeをする
 #### sudo docker-compose up -d
